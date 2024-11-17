@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        <Link href="/" className="navbar-brand">E-Shop</Link>
+        <Link href="/" className="navbar-brand">E-Commerce Shop</Link>
         <button
           className="navbar-toggler"
           type="button"

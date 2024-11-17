@@ -4,10 +4,13 @@ import HomePage from './HomePage';
 // import ProductCard from './ProductCard';
 import ProductsPage from './ProductsPage';
 import RegisterPage from './RegisterPage';
-import { Route, Switch } from 'wouter';
+import Footer from './Footer';
 import "./styles.css";
 
+import { Route, Switch } from 'wouter';
+
 export default function App() {
+
   return (
     <>
       <Navbar />
@@ -17,11 +20,14 @@ export default function App() {
         <Route path="/register" component={RegisterPage} />
       </Switch>
 
-      <footer className="bg-dark text-white text-center py-3">
+      <Footer />
+
+      {/* <footer className="bg-dark text-white text-center py-3">
         <div className="container">
           <p>&copy; 2024 E-Commerence-Shop. All rights reserved.</p>
         </div>
-      </footer>
+      </footer> */}
+
     </>
   );
 }
