@@ -1,9 +1,12 @@
-import React from 'react';
+// import React from 'react';
+import React, { useEffect } from 'react'; // Correct import for React and useEffect
+
 import Navbar from './Navbar';
 import HomePage from './HomePage';
-// import ProductCard from './ProductCard';
 import ProductsPage from './ProductsPage';
 import RegisterPage from './RegisterPage';
+
+import { useFlashMessage } from './FlashMessageStore';
 import Footer from './Footer';
 import "./styles.css";
 
@@ -11,22 +14,46 @@ import { Route, Switch } from 'wouter';
 
 export default function App() {
 
+  const { getMessage, clearMessage } = useFlashMessage();
+  const flashMessage = getMessage();
+  console.log(flashMessage);
+
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      clearMessage();
+    }
+      , 3000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }
+    , [flashMessage]);
+
   return (
     <>
       <Navbar />
+
+
       <Switch>
         <Route path="/" component={HomePage} />
         <Route path="/products" component={ProductsPage} />
         <Route path="/register" component={RegisterPage} />
       </Switch>
+      {/* {flashMessage.message && (
+        <div className={`alert alert-${flashMessage.type} text-center flash-alert`} role="alert">
+          {flashMessage.message}
+        </div>
+      )} */}
+
+      {flashMessage?.message && (
+      <div className={`alert alert-${flashMessage.type} text-center flash-alert`} role="alert">
+        {flashMessage.message}
+      </div>
+      )}
+
 
       <Footer />
-
-      {/* <footer className="bg-dark text-white text-center py-3">
-        <div className="container">
-          <p>&copy; 2024 E-Commerence-Shop. All rights reserved.</p>
-        </div>
-      </footer> */}
 
     </>
   );

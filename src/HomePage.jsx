@@ -56,6 +56,7 @@ export default function HomePage() {
   return (
     <>
 
+      // <Header /> {/* Use Header Component */}
       <Header title="Welcome to E-Shop"
         subtitle="Discover amazing products at unbeatable prices!" />
 
