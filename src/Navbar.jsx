@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 
 export default function Navbar() {
-  const [isNavbarShowing, setIsNavbarShowing] = useState(false);
   const [location] = useLocation();
+  const [isNavbarShowing, setIsNavbarShowing] = useState(false);
+
 
   const toggleNavbar = () => {
     setIsNavbarShowing(!isNavbarShowing);
@@ -35,19 +36,16 @@ export default function Navbar() {
         <div className={`collapse navbar-collapse ${isNavbarShowing ? "show" : ""}`} id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link href="/" className={`nav-link ${location === '/' ? 'active' : ''}`}>
-                Home
-              </Link>
+              <Link href="/" className={`nav-link ${location === '/' ? 'active' : ''}`}>Home</Link>
             </li>
             <li className="nav-item">
-              <Link href="/products" className={`nav-link ${location === '/products' ? 'active' : ''}`}>
-                Products
-              </Link>
+              <Link href="/products" className={`nav-link ${location === '/products' ? 'active' : ''}`}>Products</Link>
             </li>
             <li className="nav-item">
-              <Link href="/register" className={`nav-link ${location === '/register' ? 'active' : ''}`}>
-                Register
-              </Link>
+              <Link href="/register" className={`nav-link ${location === '/register' ? 'active' : ''}`}>Register</Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/cart" className={`nav-link ${location === '/cart' ? 'active' : ''}`}>Cart</Link>
             </li>
           </ul>
         </div>

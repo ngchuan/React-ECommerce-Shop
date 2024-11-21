@@ -11,6 +11,7 @@ import Footer from './Footer';
 import "./styles.css";
 
 import { Route, Switch } from 'wouter';
+import ShoppingCart from './ShoppingCart';
 
 export default function App() {
 
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="/" component={HomePage} />
         <Route path="/products" component={ProductsPage} />
         <Route path="/register" component={RegisterPage} />
+        <Route path="/Cart" component={ShoppingCart} />
       </Switch>
       {/* {flashMessage.message && (
         <div className={`alert alert-${flashMessage.type} text-center flash-alert`} role="alert">
