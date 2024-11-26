@@ -3,12 +3,8 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useFlashMessage } from './FlashMessageStore';
 
-
-
 function RegisterPage() {
-
   const { showMessage } = useFlashMessage();
-
   const initialValues = {
     name: '',
     email: '',
@@ -39,8 +35,8 @@ function RegisterPage() {
       console.error('Registration failed:', error.response?.data || error.message);
       showMessage('Registration failed. Please try again.', 'error');
     } finally {
-    formikHelpers.setSubmitting(false);
-    setLocation('/');
+      formikHelpers.setSubmitting(false);
+      setLocation('/');
     }
   };
 

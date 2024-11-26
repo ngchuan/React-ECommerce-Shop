@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default function Header({ title, subtitle }) {
     return (
       <header className="bg-primary text-white text-center py-5">

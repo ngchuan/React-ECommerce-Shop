@@ -13,11 +13,14 @@ import "./styles.css";
 import { Route, Switch } from 'wouter';
 import ShoppingCart from './ShoppingCart';
 
+// make sure to import `UserLogin.jsx` after the other imports
+import UserLogin from "./UserLogin"
+
 export default function App() {
 
   const { getMessage, clearMessage } = useFlashMessage();
   const flashMessage = getMessage();
-  console.log(flashMessage);
+  // console.log(flashMessage);
 
   useEffect(() => {
 
@@ -35,18 +38,13 @@ export default function App() {
     <>
       <Navbar />
 
-
       <Switch>
         <Route path="/" component={HomePage} />
         <Route path="/products" component={ProductsPage} />
         <Route path="/register" component={RegisterPage} />
+        <Route path="/login" component={UserLogin} />
         <Route path="/Cart" component={ShoppingCart} />
       </Switch>
-      {/* {flashMessage.message && (
-        <div className={`alert alert-${flashMessage.type} text-center flash-alert`} role="alert">
-          {flashMessage.message}
-        </div>
-      )} */}
 
       {flashMessage?.message && (
       <div className={`alert alert-${flashMessage.type} text-center flash-alert`} role="alert">
@@ -54,9 +52,7 @@ export default function App() {
       </div>
       )}
 
-
       <Footer />
-
     </>
   );
 }
