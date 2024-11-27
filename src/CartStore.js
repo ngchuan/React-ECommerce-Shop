@@ -41,7 +41,7 @@ export const useCart = () => {
   const [cart, setCart] = useAtom(cartAtom);
 
   // getter
-  // const getCart = () => { return cart };
+  const getCart = () => { return cart };
 
 
 
@@ -92,7 +92,7 @@ export const useCart = () => {
   }
 
   return {
-    cart,
+    getCart,
     getCartTotal,
     addToCart,
     modifyQuantity,
